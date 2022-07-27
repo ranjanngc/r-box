@@ -69,14 +69,40 @@ Limitation - composite variable interpolation does not work. In the case of comp
 <script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.min.js'></script>
 ```
 ![sample](./docs/assets/sample01.gif)
-https://codepen.io/RanjanKr/pen/ExEwpvP
 
-
-## Enable/Disable
+See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
+## ToDo List
 ```HTML
+<r-box data-bind="dataObject">
 
+    <ul react-on='["todo"]'>
+      ${addList}
+    </ul>
+    <input type="text" data-value="task">
+    <button onclick="dataObject.clickHandler()">Add Task</button>
+</r-box>
+
+<script>
+    var dataObject = {
+
+        task: '',
+        todo: ['Job1', 'Job2'],
+        addList: ()=>{
+          return dataObject.todo.map((td)=> {
+            return `<li>${td}</li>`;
+          }).join('')
+        },
+        clickHandler : () => {
+            dataObject.todo.push(dataObject.task);
+            dataObject.task = '';
+            dataObject.todo = dataObject.todo;
+        }
+    };
+    
+</script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.min.js'></script>
 ```
-
+See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
 # CDN
 ## Minified
 ```
