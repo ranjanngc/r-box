@@ -18,7 +18,7 @@ class RBox extends HTMLElement {
       this.parseChild(this);
 
       this.attachProxy();
-    }
+    };
     
     parseChild = (node) => {
 
@@ -26,7 +26,7 @@ class RBox extends HTMLElement {
 
             this.parseNodes(node.childNodes);
         }
-    }
+    };
 
     parseNodes = (nodes) => {
 
@@ -40,7 +40,7 @@ class RBox extends HTMLElement {
             this.applyInterpolation(node);
             this.parseChild(node);
         });
-    }
+    };
 
     initializeNode(node, attr) {
 
@@ -49,7 +49,7 @@ class RBox extends HTMLElement {
         
         const fn = {el: node, attr: attr, bind: prop};
         
-        const reactOn = JSON.parse(node.getAttribute('react-on') ?? "[]");
+        let reactOn = JSON.parse(node.getAttribute('react-on') ?? "[]");
         reactOn.push(prop)
         reactOn.forEach(p => {
             this._data.map[p] = this._data.map[prop] || [];
@@ -65,7 +65,7 @@ class RBox extends HTMLElement {
 
             const prop = node.textContent.replace('${', '').replace('}','').replace(' ', '').trim();
             
-            const reactOn = JSON.parse(node.getAttribute('react-on') ?? "[]");
+            let reactOn = JSON.parse(node.getAttribute('react-on') ?? "[]");
             reactOn.push(prop)
 
             const ipl = {el: node, text: () => {
@@ -82,7 +82,7 @@ class RBox extends HTMLElement {
 
             node.innerHTML = ipl.text();
         }
-    }
+    };
 
     attachProxy = () => {
 
@@ -119,7 +119,7 @@ class RBox extends HTMLElement {
               return true;
             }
         })
-    }
+    };
 
     attachEvents = (child, attr, prop)=> {
 
@@ -130,7 +130,7 @@ class RBox extends HTMLElement {
                 window[this._bind][prop] = (typeof(window[this._bind][prop]) === 'boolean') ? ev.target.checked : ev.target.value;
             })
         }
-    }
+    };
 };
   
 customElements.define("r-box", RBox);

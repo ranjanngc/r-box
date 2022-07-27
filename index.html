@@ -36,26 +36,26 @@
             }; 
         </script>
 <br /><br /><br />
-<r-box :bind="dataObject">
+<r-box :bind="dataObject2">
 
     <label>${label}</label>
     <input type="text" data-value="time">
 </r-box>
 
 <script>
-    var dataObject = {
+    var dataObject2 = {
 
         label: 'Time',
         time: ''
     };
 
     window.setInterval(() => {
-        dataObject.time = (new Date()).toLocaleString();
+        dataObject2.time = (new Date()).toLocaleString();
     }, 1000);
     
 </script>
 
-        <script src="src/r-box.js" defer></script>
+        <script src="src/r-box.min.js" defer></script>
           
     </body>
 </html>
