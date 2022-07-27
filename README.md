@@ -69,5 +69,5 @@ Limitation - composite variable interpolation does not work. In the case of comp
 
 # Build
 ```
-npx uglify-js src/r-box.js -o src/r-box.min.js
+npx uglify-js src/r-box.js -o src/r-box.min.js -c -m
 ```
