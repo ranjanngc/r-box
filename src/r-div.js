@@ -76,3 +76,4 @@ class RDiv extends HTMLElement {
   };
   
   customElements.define("r-div", RDiv);
+console.log('r-div initialized');
