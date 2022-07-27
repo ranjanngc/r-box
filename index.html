@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h3> Reactive - select </h3>
+        <r-box :bind="dataObject">
+
+            <h4 data-style="countryClass" react-on='["country"]'>${country}</h4>
+            <label>${label}</label><input type="text" data-value="fullName" >
+            <input type="text" data-value="fullName" data-disabled="active"> 
+            <input type="checkbox" data-checked="active">
+            <div>
+                <button data-disabled="active">Active</button>
+            </div>
+            <select data-value="country" react-on='["countries"]'>
+                ${renderCountry}
+            </select>
+        </r-box>
+
+        <script>
+            var dataObject = {
+
+                label: 'Name', 
+                fullName: 'Ranjan Kumar', 
+                active: true,
+                country: 'India',
+                countries: ['India', 'Japan', 'Indonesia'],
+                renderCountry: () => {
+
+                    return dataObject.countries.map((ctr) => {
+                        return `<option value=${ctr}>${ctr}</option>`}).join('');
+                },
+                countryClass: () => {
+                    
+                    return `background-color:${dataObject.country === 'India' ? 'blue': 'yellow'}`
+                }
+            }; 
+        </script>
+<br /><br /><br />
+<r-box :bind="dataObject">
+
+    <label>${label}</label>
+    <input type="text" data-value="time">
+</r-box>
+
+<script>
+    var dataObject = {
+
+        label: 'Time',
+        time: ''
+    };
+
+    window.setInterval(() => {
+        dataObject.time = (new Date()).toLocaleString();
+    }, 1000);
+    
+</script>
+
+        <script src="src/r-box.js" defer></script>
+          
+    </body>
+</html>
