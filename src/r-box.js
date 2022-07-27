@@ -10,7 +10,7 @@ class RBox extends HTMLElement {
 
       super();
 
-      this._bind        = this.getAttribute(":bind");
+      this._bind        = this.getAttribute("data-bind");
       this._select      = document.createElement('select');
       this.bindObject   = window[this._bind];
       this._data        = {...this.bindObject, map: {}, interpolation: {}};
@@ -34,15 +34,15 @@ class RBox extends HTMLElement {
 
             for(let data in node.dataset){
 
-                this.initializeNode(node, data);
+                this.init(node, data);
             }
     
-            this.applyInterpolation(node);
+            this.polate(node);
             this.parseChild(node);
         });
     };
 
-    initializeNode(node, attr) {
+    init(node, attr) {
 
         const prop = node.dataset[attr];
         
@@ -59,7 +59,7 @@ class RBox extends HTMLElement {
         this.attachEvents(node, attr, prop);
     };
 
-    applyInterpolation = (node) => {
+    polate = (node) => {
 
         if(node.textContent.indexOf('${') > -1) {
 

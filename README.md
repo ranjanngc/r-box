@@ -8,7 +8,7 @@ r-box is an initiative to create a web component to host your HTML and add react
 
 # Uses
 ```HTML
-<r-box :bind="dataObject">
+<r-box data-bind="dataObject">
     <!-- HTML Template-->
 </r-box>
 
@@ -25,7 +25,8 @@ r-box is an initiative to create a web component to host your HTML and add react
 r-box has very few directives to add reactivity to HTML
 |directive|description|
 |---------|-----------|
-|data-*| To add reactivity to element attribute use `data-*` directive. For example to add a dynamic class you can use `data-class=methodToReturnClass`| 
+|data-bind|associate JS object with r-box|
+|data-*| To add reactivity to the element attribute use `data-*` directive. For example to add a dynamic class you can use `data-class=methodToReturnClass`| 
 |react-on| string representation of a list of properties on change of which DOM should adopt the change|
 
 # Interpolation
@@ -44,8 +45,10 @@ Limitation - composite variable interpolation does not work. In the case of comp
 ```
 
 # Example
+
+## Timer
 ```HTML
-<r-box :bind="dataObject">
+<r-box data-bind="dataObject">
 
     <label>${label}</label>
     <input type="text" data-value="time">
@@ -59,15 +62,33 @@ Limitation - composite variable interpolation does not work. In the case of comp
     };
 
     window.setInterval(() => {
-        dataObject.time = (new DateTime()).toLocalTime();
+        dataObject.time = (new Date()).toLocaleString();
     }, 1000);
     
 </script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.min.js'></script>
 ```
 ![sample](./docs/assets/sample01.gif)
+https://codepen.io/RanjanKr/pen/ExEwpvP
 
 
+## Enable/Disable
+```HTML
+
+```
+
+# CDN
+## Minified
+```
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.min.js'></script>
+```
+## Dev
+```
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.js'></script>
+```
 # Build
 ```
 npx uglify-js src/r-box.js -o src/r-box.min.js -c -m
 ```
+# License
+MIT

@@ -2,7 +2,7 @@
 <html>
     <body>
         <h3> Reactive - select </h3>
-        <r-box :bind="dataObject">
+        <r-box data-bind="dataObject">
 
             <h4 data-style="countryClass" react-on='["country"]'>${country}</h4>
             <label>${label}</label><input type="text" data-value="fullName" >
@@ -36,7 +36,7 @@
             }; 
         </script>
 <br /><br /><br />
-<r-box :bind="dataObject2">
+<r-box data-bind="dataObject2">
 
     <label>${label}</label>
     <input type="text" data-value="time">
@@ -55,7 +55,7 @@
     
 </script>
 
-        <script src="src/r-box.min.js" defer></script>
+        <script src="src/r-box.js" defer></script>
           
     </body>
 </html>
