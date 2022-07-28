@@ -1,19 +1,14 @@
 class RBox extends HTMLElement {
 
-    _select     = null;
     _bind       = null;
-    _items      = [{key: '-1', value: 'empty'}];
     _data       = null;
-    _bindMap    = {};
 
     constructor() {
 
       super();
 
       this._bind        = this.getAttribute("data-bind");
-      this._select      = document.createElement('select');
-      this.bindObject   = window[this._bind];
-      this._data        = {...this.bindObject, map: {}, interpolation: {}};
+      this._data        = {...window[this._bind], map: {}, interpolation: {}};
       
       this.parseChild(this);
 
