@@ -112,7 +112,7 @@ class RBox extends RBoxProxy {
     constructor() {
         super();
         this._bind = this.getAttribute("data-bind") || '';
-        this._data = Object.assign(Object.assign({}, window[this._bind]), { bindmap: {}, interpolation: {} });
+        this._data = Object.assign(Object.assign({}, window[this._bind]), { bindmap: {} });
         this.parse(this);
         this.setup();
     }
