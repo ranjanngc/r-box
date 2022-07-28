@@ -1,8 +1,8 @@
 import RBoxParser from "./RBoxParser";
 
 export default class RBoxProxy extends RBoxParser {
-
-    attachProxy = () => {
+    
+    setup = () => {
 
         window[this._bind] = new Proxy(this._data, {
 
@@ -10,7 +10,8 @@ export default class RBoxProxy extends RBoxParser {
 
                 target[prop] = value;
 
-                target.bindmap[prop] && target.bindmap[prop].forEach((child)=>{
+                target.bindmap[prop] && target.bindmap[prop].forEach((child)=> {
+
                     const attrValue = typeof(target[child.bind]) === 'function' ? target[child.bind]() : target[child.bind];
                     child.el.setAttribute(child.attr, attrValue);
 
@@ -28,6 +29,7 @@ export default class RBoxProxy extends RBoxParser {
                 });
                 
                 if(target.interpolation[prop]) {
+                    
                     target.interpolation[prop].forEach((child)=>{
                         
                         child.el.innerHTML = child.text(); 

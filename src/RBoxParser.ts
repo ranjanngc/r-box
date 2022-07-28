@@ -1,16 +1,16 @@
 import RBoxInterpolator from './RBoxInterpolator';
 
 export default class RBoxParser extends RBoxInterpolator {
-
-    parseChild = (node) => {
+    
+    parse = (node) => {
 
         if(node.childNodes){
 
-            this.parseNodes(node.childNodes);
+            this.bind(node.childNodes);
         }
     };
 
-    parseNodes = (nodes) => {
+    bind = (nodes) => {
 
         nodes.forEach(node => {
 
@@ -20,15 +20,13 @@ export default class RBoxParser extends RBoxInterpolator {
             }
     
             this.polate(node);
-            this.parseChild(node);
+            this.parse(node);
         });
     };
 
     init(node, attr) {
 
         const prop = node.dataset[attr];
-        
-        
         const fn = {el: node, attr: attr, bind: prop};
         
         let reactOn = JSON.parse(node.getAttribute('react-on') ?? "[]");
