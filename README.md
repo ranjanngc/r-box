@@ -66,7 +66,7 @@ Limitation - composite variable interpolation does not work. In the case of comp
     }, 1000);
     
 </script>
-<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.1.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.3.es.min.js' type="module"></script>
 ```
 ![sample](./docs/assets/sample01.gif)
 
@@ -100,7 +100,7 @@ See example  - https://codepen.io/RanjanKr/pen/oNqGvpj
     };
     
 </script>
-<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.1.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.3.es.min.js' type="module"></script>
 ```
 See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
 # CDN
