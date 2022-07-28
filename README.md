@@ -36,12 +36,12 @@ use `${yourVariableName}` to interpolate the `yourVariableName` in template. E.g
 ```
 Limitation - composite variable interpolation does not work. In the case of complex interpolation use function. E.g.
 ```
-<h1>${yourFunctionName}</h1> // yourFunctionName: () => {return var1 + var2 + var3}
+<h1>${yourFunction}</h1> // yourFunction: () => {return var1 + var2 + var3}
 ```
 
 # data-*
 ```
-<input type="text" data-value="yourVariableName">
+<input type="text" data-value="yourVariable">
 ```
 
 # Example
