@@ -106,15 +106,15 @@ See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
 # CDN
 ## Minified
 ```
-<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.1.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.2.min.es.js'></script>
 ```
 ## Dev
 ```
-<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.2.es'></script>
 ```
 # Build
 ```
-npx uglify-js src/r-box.js -o dist/r-box.v0.0.1.min.js -c -m
+npm run build
 ```
 # License
 MIT
