@@ -46,7 +46,7 @@ Limitation - composite variable interpolation does not work. In the case of comp
 
 # Example
 
-## Timer
+### Timer
 ```HTML
 <r-box data-bind="dataObject">
 
@@ -71,7 +71,7 @@ Limitation - composite variable interpolation does not work. In the case of comp
 ![sample](./docs/assets/sample01.gif)
 
 See example  - https://codepen.io/RanjanKr/pen/oNqGvpj
-## ToDo List
+### ToDo List
 ```HTML
 <r-box data-bind="dataObject">
 
