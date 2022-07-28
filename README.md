@@ -102,7 +102,19 @@ See example  - https://codepen.io/RanjanKr/pen/oNqGvpj
 </script>
 <script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.3.es.min.js' type="module"></script>
 ```
-See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
+### Enable/Disable 
+```HTML
+<r-box data-bind="dataObject">
+  
+  <input type="text" data-disabled="disabled"> 
+  <input type="checkbox" data-checked="disabled">
+</r-box>
+
+<script>
+  var dataObject = { disabled: false };
+</script>
+```
+See example  - [https://codepen.io/RanjanKr/pen/ExEwpvP](https://codepen.io/RanjanKr/pen/eYMeBdM)
 # CDN
 ## Minified
 ```
