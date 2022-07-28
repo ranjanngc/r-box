@@ -1,4 +1,4 @@
-class RBox extends HTMLElement {
+class RBox_1 extends HTMLElement {
 
     _bind       = null;
     _data       = null;
