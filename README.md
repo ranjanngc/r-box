@@ -66,11 +66,11 @@ Limitation - composite variable interpolation does not work. In the case of comp
     }, 1000);
     
 </script>
-<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.1.min.js'></script>
 ```
 ![sample](./docs/assets/sample01.gif)
 
-See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
+See example  - https://codepen.io/RanjanKr/pen/oNqGvpj
 ## ToDo List
 ```HTML
 <r-box data-bind="dataObject">
@@ -100,13 +100,13 @@ See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
     };
     
 </script>
-<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.1.min.js'></script>
 ```
 See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
 # CDN
 ## Minified
 ```
-<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/src/r-box.min.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/ranjanngc/r-box/dist/r-box.v0.0.1.min.js'></script>
 ```
 ## Dev
 ```
@@ -114,7 +114,7 @@ See example  - https://codepen.io/RanjanKr/pen/ExEwpvP
 ```
 # Build
 ```
-npx uglify-js src/r-box.js -o src/r-box.min.js -c -m
+npx uglify-js src/r-box.js -o dist/r-box.v0.0.1.min.js -c -m
 ```
 # License
 MIT
