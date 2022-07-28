@@ -20,7 +20,7 @@ export default class RBoxProxy extends RBoxParser {
                     }
                     
                     if(child.polate) {
-                        child.el.innerText = attrValue; 
+                        child.el.innerHTML = attrValue; 
                     }
                     else {
                         child.el.setAttribute(child.attr, attrValue);

@@ -1,7 +1,7 @@
 {
   "name": "r-box",
   "description": "r-box is an initiative to create a web component to host your HTML and add reactivity to it.",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "main": "index.ts",
   "directories": {
     "doc": "docs"

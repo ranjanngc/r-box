@@ -89,7 +89,7 @@ class RBoxProxy extends RBoxParser {
                             attrValue = child.bind();
                         }
                         if (child.polate) {
-                            child.el.innerText = attrValue;
+                            child.el.innerHTML = attrValue;
                         }
                         else {
                             child.el.setAttribute(child.attr, attrValue);
