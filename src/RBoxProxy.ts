@@ -1,4 +1,5 @@
 import RBoxParser from "./RBoxParser";
+import { TBoxBindMap } from "./RBoxTypes";
 
 export default class RBoxProxy extends RBoxParser {
     
@@ -10,33 +11,31 @@ export default class RBoxProxy extends RBoxParser {
 
                 target[prop] = value;
 
-                target.bindmap[prop] && target.bindmap[prop].forEach((child)=> {
+                target.bindmap[prop] && target.bindmap[prop].forEach((child: TBoxBindMap)=> {
 
                     const attrValue = typeof(target[child.bind]) === 'function' ? target[child.bind]() : target[child.bind];
-                    child.el.setAttribute(child.attr, attrValue);
-
-                    if(typeof(attrValue) === 'boolean') {
-        
-                        attrValue ? 
-                            child.el.setAttribute(child.attr, 'true') : 
-                            child.el.removeAttribute(child.attr);
+                    
+                    if(child.polate) {
+                        child.el.innerHTML = attrValue; 
                     }
+                    else {
+                        child.el.setAttribute(child.attr, attrValue);
 
-                    if(child.el[child.attr]){
+                        if(typeof(attrValue) === 'boolean') {
+            
+                            attrValue ? 
+                                child.el.setAttribute(child.attr, 'true') : 
+                                child.el.removeAttribute(child.attr);
+                        }
 
-                        child.el[child.attr] = attrValue;
+                        if(child.el[child.attr]){
+
+                            child.el[child.attr] = attrValue;
+                        }
                     }
                 });
                 
-                if(target.interpolation[prop]) {
-                    
-                    target.interpolation[prop].forEach((child)=>{
-                        
-                        child.el.innerHTML = child.text(); 
-                    })
-                }
-    
-              return true;
+                return true;
             }
         })
     };

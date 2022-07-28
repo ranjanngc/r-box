@@ -25,17 +25,17 @@ class RBoxInterpolator extends RBoxEventManager {
                 const tc = node.textContent.replace('${', '').replace('}', '').replace(' ', '').trim();
                 let reactOn = JSON.parse((_a = node.getAttribute('react-on')) !== null && _a !== void 0 ? _a : "[]");
                 reactOn.push(tc);
-                const ipl = { el: node, text: () => {
+                const ipl = { el: node, polate: true, bind: () => {
                         if (typeof (this._data[tc]) === 'function') {
                             return this._data[tc]();
                         }
                         return `${this._data[tc]}`;
                     } };
                 reactOn.forEach(p => {
-                    this._data.interpolation[p] = this._data.interpolation[tc] || [];
-                    this._data.interpolation[p].push(ipl);
+                    this._data.bindmap[p] = this._data.bindmap[tc] || [];
+                    this._data.bindmap[p].push(ipl);
                 });
-                node.innerHTML = ipl.text();
+                node.innerHTML = ipl.bind();
             }
         };
     }
@@ -84,21 +84,21 @@ class RBoxProxy extends RBoxParser {
                     target[prop] = value;
                     target.bindmap[prop] && target.bindmap[prop].forEach((child) => {
                         const attrValue = typeof (target[child.bind]) === 'function' ? target[child.bind]() : target[child.bind];
-                        child.el.setAttribute(child.attr, attrValue);
-                        if (typeof (attrValue) === 'boolean') {
-                            attrValue ?
-                                child.el.setAttribute(child.attr, 'true') :
-                                child.el.removeAttribute(child.attr);
+                        if (child.polate) {
+                            child.el.innerHTML = attrValue;
                         }
-                        if (child.el[child.attr]) {
-                            child.el[child.attr] = attrValue;
+                        else {
+                            child.el.setAttribute(child.attr, attrValue);
+                            if (typeof (attrValue) === 'boolean') {
+                                attrValue ?
+                                    child.el.setAttribute(child.attr, 'true') :
+                                    child.el.removeAttribute(child.attr);
+                            }
+                            if (child.el[child.attr]) {
+                                child.el[child.attr] = attrValue;
+                            }
                         }
                     });
-                    if (target.interpolation[prop]) {
-                        target.interpolation[prop].forEach((child) => {
-                            child.el.innerHTML = child.text();
-                        });
-                    }
                     return true;
                 }
             });
