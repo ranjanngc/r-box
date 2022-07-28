@@ -10,11 +10,10 @@ export default class RBoxProxy extends RBoxParser {
             set(target, prop, value) {
 
                 target[prop] = value;
-                const exec = 'function';
                 target.bindmap[prop] && target.bindmap[prop].forEach((child: TBoxBindMap)=> {
 
-                    let attrValue = typeof(target[child.bind]) === exec ? target[child.bind]() : target[child.bind];
-                    if(typeof(child.bind) === exec){
+                    let attrValue = typeof(target[child.bind]) === 'function' ? target[child.bind]() : target[child.bind];
+                    if(typeof(child.bind) === 'function'){
 
                         // A DIRTY HACK
                         attrValue = (child.bind as unknown as Function)();

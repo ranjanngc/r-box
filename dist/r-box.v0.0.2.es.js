@@ -80,10 +80,9 @@ class RBoxProxy extends RBoxParser {
             window[this._bind] = new Proxy(this._data, {
                 set(target, prop, value) {
                     target[prop] = value;
-                    const exec = 'function';
                     target.bindmap[prop] && target.bindmap[prop].forEach((child) => {
-                        let attrValue = typeof (target[child.bind]) === exec ? target[child.bind]() : target[child.bind];
-                        if (typeof (child.bind) === exec) {
+                        let attrValue = typeof (target[child.bind]) === 'function' ? target[child.bind]() : target[child.bind];
+                        if (typeof (child.bind) === 'function') {
                             // A DIRTY HACK
                             attrValue = child.bind();
                         }
